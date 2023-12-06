@@ -10,6 +10,7 @@ namespace WDD_Final_Practical_Component
     public partial class Page1 : Page {
         private const int EXPECTED_NUMBER_OF_WORDS = 2;
         private const string PAGE2_URL = "Page2.aspx";
+        private const string FULL_NAME_COOKIES_KEY = "fullname";
         protected void Page_Load(object sender, EventArgs e) {
 
         }
@@ -30,6 +31,8 @@ namespace WDD_Final_Practical_Component
             switch(result) {
                 case 0:
                     FeedBack.InnerHtml = "";
+                    Response.Cookies[FULL_NAME_COOKIES_KEY].Value = fullName;
+                    Response.Cookies[FULL_NAME_COOKIES_KEY].Expires = DateTime.Now.AddHours(1);
                     Response.Redirect(PAGE2_URL);
                     break;
                 case 1:
