@@ -8,6 +8,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <header>
+            <h1>SET Pizza Shop</h1>
+        </header>
         <div>
             <h1>Welcome to SET Pizza Shop!</h1>
             <p>Here you can order pizza online!</p>
