@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Web;
-using System.Web.Services.Protocols;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -51,7 +49,7 @@ namespace WDD_Final_Practical_Component
 
         private int CheckNameFormat(string fullName) {
             // get the first and last name by separate
-            // check that we fetched ONLY 2 words   -> First name and Last name
+            // check that we fetched ONLY 2 words   ->  First name and Last name
             string[] nameCollection = fullName.Split(' ');
             if(nameCollection.Length != EXPECTED_NUMBER_OF_WORDS) {
                 return 1;
