@@ -43,32 +43,22 @@
                 $(document).ready(function () {
                     // Attach an event handler to the checkbox
                     $("#Toppings_Options").change(function (e) {
-                        console.log(e);
+                        console.log(e.originalEvent.target.defaultValue);
                         // Check if the checkbox is checked
-                        if ($(this).is(":checked")) {
-                            // If checked, send a message to the server
-                            sendMessageToServer();
-                        }
-                        // You can add an else condition for handling unchecked state if needed
-                    });
-
-                    function sendMessageToServer() {
-                        // Use jQuery Ajax to send a message to the server
+                        let topping = e.originalEvent.target.defaultValue;
+                        console.log({ topping });
                         $.ajax({
                             type: "POST",
                             url: "Page2.aspx/TestMethod",
-                            data: '{}',
+                            data: { topping },
                             contentType: "application/json; charset=utf-8",
                             dataType: "json",
                             success: function (response) {
                                 // Update the result div with the server response
                                 document.getElementById('Price').value = "ss";
-                            },
-                            error: function (error) {
-                                console.log(error);
                             }
                         });
-                    }
+                    })
                 });
             </script>
 
