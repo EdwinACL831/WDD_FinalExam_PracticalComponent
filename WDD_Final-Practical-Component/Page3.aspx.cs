@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -8,12 +9,39 @@ using System.Web.UI.WebControls;
 namespace WDD_Final_Practical_Component {
     public partial class Page3 : Page {
         private const string USER_CHOICE_KEY = "userChoice";
+        private const string FULL_NAME_COOKIES_KEY = "fullname";
+        private const string ADDED_TOPPINGS = "addedToppings";
         private const string PAGE4_URL = "Page4.aspx";
 
         protected void Page_Load(object sender, EventArgs e) {
             // as soon as the page is loaded, update the greeting message
-            string username = "Edwin";
+            string fullname = Request.Cookies[FULL_NAME_COOKIES_KEY].Value;
+            string username = fullname.Split(' ')[0];
             Greeting.InnerText = $"Ciao {username}";
+
+            // dynamically build the order summary
+            string addedtoppingsStr = Request.Cookies[ADDED_TOPPINGS].Value;
+            string innerHTML = BuildOrderSummary(addedtoppingsStr);
+            OrderSummary.InnerHtml = innerHTML;
+        }
+
+        private string BuildOrderSummary(string addedtoppingsStr) {
+            StringBuilder innerHTML = new StringBuilder();
+            innerHTML.Append("<p>Cheese and Sauce (always included)....$10.00</p>");
+
+            if (string.IsNullOrEmpty(addedtoppingsStr)) {
+                innerHTML.Append("<p>No additional toppings</p>");
+            } else {
+                string[] toopingCouples = addedtoppingsStr.Split(' ');
+
+                foreach (string toppingCouple in toopingCouples) {
+                    string toppingName = toppingCouple.Split('=')[0].Replace('_', ' ');
+                    string toppingPrice = toppingCouple.Split('=')[1];
+                    innerHTML.Append($"<p>{toppingName}....${toppingPrice}</p>");
+                }
+            }
+
+            return innerHTML.ToString();
         }
 
         protected void Confirm_Click(object sender, EventArgs e) {

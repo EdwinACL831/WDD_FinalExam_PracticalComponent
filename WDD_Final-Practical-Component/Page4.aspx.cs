@@ -21,9 +21,9 @@ namespace WDD_Final_Practical_Component {
             string choice = Request.Cookies[USER_CHOICE_KEY].Value;
 
             if(choice.Equals(CONFIRM)) {
-                DisplayThankUserMessage($"Thank you {fullname}, you have {choice}ed the order; our delivery team will head soon to your address!");
+                DisplayThankUserMessage($"Thank you {fullname}, you have {choice}ed the order. Our delivery team will head soon to your address!");
             } else if(choice.Equals(CANCEL)) {
-                DisplayThankUserMessage($"Thank you {fullname}, you have {choice}led the order; SET Pizza Shop hope to see you back soon!");
+                DisplayThankUserMessage($"Thank you {fullname}, you have {choice}led the order. SET Pizza Shop hope to see you back soon!");
             }
         }
 
