@@ -75,6 +75,7 @@
     <Content Include="Page2.aspx" />
     <Content Include="Page3.aspx" />
     <Content Include="Page4.aspx" />
+    <Content Include="Styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
