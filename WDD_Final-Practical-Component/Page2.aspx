@@ -23,8 +23,6 @@
                 <asp:ListItem Text="green peppers" Value="1" />
                 <asp:ListItem Text="double cheese" Value="2.25" />
             </asp:CheckBoxList>
- 
-            
             
             <h3>Total price:$
                 <label id="Price" runat="server">10.0</label>
@@ -32,40 +30,24 @@
 
             <asp:Button ID="NextBtn" runat="server" Text="Make it!" OnClick="NextBtn_Click" />
 
-
             <script type="text/javascript">
-                $(document).ready(function () {
-                    var status;
-                    var JSONObject;
+                $(document).ready(function() {
+                    let status;
                     // Attach an event handler to the checkbox
-                    $("#<%= Toppings_Options.ClientID %> input[type='checkbox']").change(function (e) {
-                        console.log(e);
-                        // Check if the checkbox is selected/unselected
-                        if ($(this).is(":checked")) {
-                            // this option is selected
-                            status = true;
-                            console.log($(this).attr("id") + " is selected");
-                            // 执行勾选后的操作
-                        } else {
-                            // this option is unselected
-                            status = false;
-                            console.log($(this).attr("id") + " is unselected");
-                        }
+                    $("#<%= Toppings_Options.ClientID %> input[type='checkbox']").change(function(e) {
+                        console.log({ e });
 
-
-                        //var name = $(this).attr("value");
-                        var price = e.originalEvent.target.defaultValue;
-
-                        JSONObject = {
+                        let JSONObject = {
                             "currentPrice": document.getElementById("Price").innerText,
-                            "price": price,
-                            "status": status
+                            "price": e.originalEvent.target.defaultValue,
+                            "status": $(this).is(":checked")
                         };
+
+                        console.log(JSONObject)
                         JSONString = JSON.stringify(JSONObject);
-                        console.log({ JSONObject });
                         $.ajax({
                             type: "POST",
-                            url: "Page2.aspx/TestMethod",
+                            url: "Page2.aspx/ProcessToppingPrice",
                             data: JSONString,
                             contentType: "application/json; charset=utf-8",
                             dataType: "json",
@@ -82,14 +64,6 @@
                     })
                 });
             </script>
-
-
-
-
-
-            <!--
-                pepperoni, mushrooms, green olives, green peppers and double cheese
-                -->
         </div>
     </form>
 </body>

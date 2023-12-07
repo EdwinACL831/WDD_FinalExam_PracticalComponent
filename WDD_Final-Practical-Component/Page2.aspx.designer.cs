@@ -7,12 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WDD_Final_Practical_Component
-{
+namespace WDD_Final_Practical_Component {
 
 
-    public partial class page2
-    {
+    public partial class page2 {
 
         /// <summary>
         /// form1 control.

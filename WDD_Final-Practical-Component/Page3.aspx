@@ -15,7 +15,7 @@
             <h2 id="Greeting" runat="server"></h2>
             <h2>Step 3</h2>
             <p>This is the summary of your order:</p>
-            <div></div>
+            <div id="OrderSummary" runat="server"></div>
             <asp:Button ID="Confirm" runat="server" Text="Confirm" OnClick="Confirm_Click" />
             <asp:Button ID="Cancel" runat="server" Text="Cancel" OnClick="Cancel_Click" />
         </main>

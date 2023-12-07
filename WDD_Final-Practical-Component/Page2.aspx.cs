@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Services;
 using System.Web.Services.Description;
@@ -10,13 +11,11 @@ using System.Web.UI.WebControls;
 
 namespace WDD_Final_Practical_Component
 {
-  
-
-    public partial class page2 : System.Web.UI.Page
+    public partial class page2 : Page
     {
-        private double totalPrice;
         private const string TOTAL_PRICE_COOKIES_KEY = "total_price";
         private const string FULL_NAME_COOKIES_KEY = "fullname";
+        private const string ADDED_TOPPINGS = "addedToppings";
         private const string PAGE3_URL = "Page3.aspx";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,32 +24,53 @@ namespace WDD_Final_Practical_Component
             string fullName = Request.Cookies[FULL_NAME_COOKIES_KEY].Value;
             string[] nameCollection = fullName.Split(' ');
             userName.Text = nameCollection[0];
-            totalPrice = 10.0;
-            //Price.Text = "10.0";
         }
 
 
         [WebMethod]
-        public static string TestMethod(string currentPrice, string price, bool status)
+        public static string ProcessToppingPrice(string currentPrice, string price, bool status)
         {
             double.TryParse(currentPrice, out double totalPrice);
             double.TryParse(price, out double toppingPrice);
-            if (status) // true -> +
-            { totalPrice += toppingPrice; }
-            else { totalPrice -= toppingPrice; }
 
-
-            // pepperoni, mushrooms, green olives, green peppers and double cheese
-            // bool array[] = [true, false, false, true, true]
+            // true -> adds
+            if (status) { 
+                totalPrice += toppingPrice;
+            }
+            else { 
+                totalPrice -= toppingPrice;
+            }
 
             return JsonConvert.SerializeObject(new { totalPrice = totalPrice });
         }
 
         protected void NextBtn_Click(object sender, EventArgs e)
         {
-            Response.Cookies[TOTAL_PRICE_COOKIES_KEY].Value = Price.InnerText;
-            Response.Cookies[TOTAL_PRICE_COOKIES_KEY].Expires = DateTime.Now.AddHours(1);
+            ListItemCollection items = Toppings_Options.Items;
+            string selectedToppingsString = BuildSelectedToppingsString(items);
+            SaveCookie(ADDED_TOPPINGS, selectedToppingsString);
+            SaveCookie(TOTAL_PRICE_COOKIES_KEY, Price.InnerText);
             Response.Redirect(PAGE3_URL);
+        }
+
+        private string BuildSelectedToppingsString(ListItemCollection items) {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (ListItem item in items) {
+                if (item.Selected) {
+                    sb.Append(item.Text.Replace(' ', '_'));
+                    sb.Append("=");
+                    sb.Append(item.Value);
+                    sb.Append(" ");
+                }
+            }
+
+            return sb.ToString().Trim();
+        }
+
+        private void SaveCookie(string key, string value) {
+            Response.Cookies[key].Value = value;
+            Response.Cookies[key].Expires = DateTime.Now.AddHours(1);
         }
     }
 }
