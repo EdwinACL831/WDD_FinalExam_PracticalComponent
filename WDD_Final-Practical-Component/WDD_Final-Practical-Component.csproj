@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,7 +70,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="Page1.aspx" />
+    <Content Include="Page2.aspx" />
     <Content Include="Page3.aspx" />
     <Content Include="Page4.aspx" />
     <Content Include="Web.config" />
@@ -79,6 +84,13 @@
     </Compile>
     <Compile Include="Page1.aspx.designer.cs">
       <DependentUpon>Page1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Page2.aspx.cs">
+      <DependentUpon>Page2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page2.aspx.designer.cs">
+      <DependentUpon>Page2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Page3.aspx.cs">
       <DependentUpon>Page3.aspx</DependentUpon>
