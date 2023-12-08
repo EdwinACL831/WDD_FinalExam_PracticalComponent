@@ -59,7 +59,10 @@ namespace WDD_Final_Practical_Component
 
             foreach (ListItem item in items) {
                 if (item.Selected) {
-                    sb.Append(item.Text.Replace(' ', '_'));
+                    string[] threeDots = new string[] { "..." };
+                    string toppingName = item.Text.Split(threeDots, StringSplitOptions.None)[0];
+
+                    sb.Append(toppingName.Replace(' ', '_'));
                     sb.Append("=");
                     sb.Append(item.Value);
                     sb.Append(" ");
