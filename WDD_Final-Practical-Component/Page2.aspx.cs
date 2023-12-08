@@ -17,6 +17,7 @@ namespace WDD_Final_Practical_Component
         private const string FULL_NAME_COOKIES_KEY = "fullname";
         private const string ADDED_TOPPINGS = "addedToppings";
         private const string PAGE3_URL = "Page3.aspx";
+        private static double totalPrice;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,7 +31,7 @@ namespace WDD_Final_Practical_Component
         [WebMethod]
         public static string ProcessToppingPrice(string currentPrice, string price, bool status)
         {
-            double.TryParse(currentPrice, out double totalPrice);
+            double.TryParse(currentPrice, out totalPrice);
             double.TryParse(price, out double toppingPrice);
 
             // true -> adds
@@ -49,7 +50,7 @@ namespace WDD_Final_Practical_Component
             ListItemCollection items = Toppings_Options.Items;
             string selectedToppingsString = BuildSelectedToppingsString(items);
             SaveCookie(ADDED_TOPPINGS, selectedToppingsString);
-            SaveCookie(TOTAL_PRICE_COOKIES_KEY, Price.InnerText);
+            SaveCookie(TOTAL_PRICE_COOKIES_KEY, totalPrice.ToString());
             Response.Redirect(PAGE3_URL);
         }
 

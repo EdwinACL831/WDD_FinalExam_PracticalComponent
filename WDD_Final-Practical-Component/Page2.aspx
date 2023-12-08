@@ -6,29 +6,33 @@
 <head runat="server">
     <title>Choose toppings</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    
+     <link rel="stylesheet" href="Styles.css"/>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <h2>Ciao
+        <header>
+            SET Pizza Shop
+        </header>
+        <div class="container">
+            <h1 class="multi-color-text">Ciao
                 <i><asp:Label ID="userName" runat="server" Text=""></asp:Label></i>
-            </h2>
-            <p>You can only order <b>ONE</b> pizza each time with sause and cheese, these are <b>topping</b> you can select:</p>
+            </h1>
+            <h2 class="step-content">Step 2</h2>
+            <p class="content-text2">You can only order <b class="ONE"><i>ONE</i></b> pizza each time with <b class="underline">sause</b> and <b class="underline">cheese</b>, <br/>these are <b>topping</b> you can select:</p>
 
-            <asp:CheckBoxList ID="Toppings_Options" runat="server">
-                <asp:ListItem Text="pepperoni" Value="1.5" />
+            <asp:CheckBoxList ID="Toppings_Options" runat="server" CssClass="check-list">
+                <asp:ListItem Text="pepperoni" Value="1.5"/>
                 <asp:ListItem Text="mushrooms" Value="1" />
                 <asp:ListItem Text="green olives" Value="1" />
                 <asp:ListItem Text="green peppers" Value="1" />
                 <asp:ListItem Text="double cheese" Value="2.25" />
             </asp:CheckBoxList>
             
-            <h3>Total price:$
+            <h3 class="prompt-text">Total price:$
                 <label id="Price" runat="server">10.0</label>
             </h3>
 
-            <asp:Button ID="NextBtn" runat="server" Text="Make it!" OnClick="NextBtn_Click" />
+            <asp:Button ID="NextBtn" runat="server" Text="Make it!" OnClick="NextBtn_Click" CssClass="button" />
 
             <script type="text/javascript">
                 $(document).ready(function() {
@@ -43,7 +47,7 @@
                             "status": $(this).is(":checked")
                         };
 
-                        console.log(JSONObject)
+                        console.log(JSONObject);
                         JSONString = JSON.stringify(JSONObject);
                         $.ajax({
                             type: "POST",

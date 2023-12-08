@@ -12,6 +12,7 @@ namespace WDD_Final_Practical_Component {
         private const string FULL_NAME_COOKIES_KEY = "fullname";
         private const string ADDED_TOPPINGS = "addedToppings";
         private const string PAGE4_URL = "Page4.aspx";
+        private const string TOTAL_PRICE_COOKIES_KEY = "total_price";
 
         protected void Page_Load(object sender, EventArgs e) {
             // as soon as the page is loaded, update the greeting message
@@ -40,6 +41,7 @@ namespace WDD_Final_Practical_Component {
                     innerHTML.Append($"<p>{toppingName}....${toppingPrice}</p>");
                 }
             }
+            innerHTML.Append($"Total Price: ${Request.Cookies[TOTAL_PRICE_COOKIES_KEY].Value}");
 
             return innerHTML.ToString();
         }

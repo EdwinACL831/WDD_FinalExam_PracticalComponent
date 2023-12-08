@@ -15,7 +15,7 @@
         </header>
         <div class="container">
             <h1 class="multi-color-text">Welcome to SET Pizza Shop!</h1>
-            <p class="content-text">Here you can order pizza online!</p>
+            <p class="content-text1">Here you can order pizza online!</p>
             <h2 class="step-content">Step 1</h2>
             <asp:Label ID="Label1" runat="server" Text="Label" CssClass="prompt-text">Please enter your <b>full name</b> (<i>first</i> and <i>last</i> name)</asp:Label>
             <br/>
