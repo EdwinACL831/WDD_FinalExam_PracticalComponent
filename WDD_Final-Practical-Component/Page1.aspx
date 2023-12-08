@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <header>
-            SET Pizza Shop
+            <h1 class="mainHeader">SET Pizza Shop</h1>
         </header>
         <div class="container">
             <h1 class="multi-color-text">Welcome to SET Pizza Shop!</h1>
