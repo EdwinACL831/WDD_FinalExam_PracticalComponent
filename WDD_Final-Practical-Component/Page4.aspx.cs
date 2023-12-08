@@ -19,12 +19,13 @@ namespace WDD_Final_Practical_Component {
             string fullname = null == Request.Cookies[FULL_NAME_COOKIES_KEY] ? 
                                                 "TestName" : Request.Cookies[FULL_NAME_COOKIES_KEY].Value;
             string choice = Request.Cookies[USER_CHOICE_KEY].Value;
-
-            if(choice.Equals(CONFIRM)) {
+            
+            if (choice.Equals(CONFIRM)) {
                 DisplayThankUserMessage($"Thank you {fullname}, you have {choice}ed the order. Our delivery team will head soon to your address!");
             } else if(choice.Equals(CANCEL)) {
                 DisplayThankUserMessage($"Thank you {fullname}, you have {choice}led the order. SET Pizza Shop hope to see you back soon!");
             }
+            Request.Cookies.Clear();
         }
 
         private void DisplayThankUserMessage(string userMsg) {

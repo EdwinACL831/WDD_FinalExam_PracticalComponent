@@ -21,11 +21,11 @@
             <p class="content-text2">You can only order <b class="ONE"><i>ONE</i></b> pizza each time with <b class="underline">sause</b> and <b class="underline">cheese</b>, <br/>these are <b>topping</b> you can select:</p>
 
             <asp:CheckBoxList ID="Toppings_Options" runat="server" CssClass="check-list">
-                <asp:ListItem Text="pepperoni" Value="1.5"/>
-                <asp:ListItem Text="mushrooms" Value="1" />
-                <asp:ListItem Text="green olives" Value="1" />
-                <asp:ListItem Text="green peppers" Value="1" />
-                <asp:ListItem Text="double cheese" Value="2.25" />
+                <asp:ListItem Text="pepperoni...$1.5" Value="1.5" />
+                <asp:ListItem Text="mushrooms...$1" Value="1" />
+                <asp:ListItem Text="green olives...$1" Value="1" />
+                <asp:ListItem Text="green peppers...$1" Value="1" />
+                <asp:ListItem Text="double cheese...$2.25" Value="2.25" />
             </asp:CheckBoxList>
             
             <h3 class="prompt-text">Total price:$
