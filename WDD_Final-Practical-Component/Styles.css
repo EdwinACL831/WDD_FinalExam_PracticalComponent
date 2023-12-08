@@ -7,19 +7,16 @@
 /* the styling for header in each page*/
 header {
     text-align: center;
-    background-color: #ff9900;
-    color: white;
-    font-weight: bold;
     font-family: "Times New Roman", Times, serif;
-    font-size: 30px;
-    max-width: 226px;
-    max-height: 16px;
+}
+
+.mainHeader {
+    color: white;
+    background-color: orange;
+    border-radius: 20px;
+    max-width: 260px;
     margin: auto;
-    margin-top: 120px;
-    margin-bottom: 58px;
-    padding: 0.3em 0em;
-    border: none;
-    border-radius: 2.0rem;
+    padding: 7px;
 }
 
 /* this will apply for all place holder*/

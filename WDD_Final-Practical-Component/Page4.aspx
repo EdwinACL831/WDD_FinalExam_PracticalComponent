@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <header>
-            SET Pizza Shop
+            <h1 class="mainHeader">SET Pizza Shop</h1>
         </header>
         <main class="container">
             <p id="ThankYouMsg" runat="server" class="content-text4"></p>
