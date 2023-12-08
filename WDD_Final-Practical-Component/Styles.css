@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
     background-size:cover;
 }
+/* the styling for header in each page*/
 header {
     text-align: center;
     background-color: #ff9900;
@@ -21,6 +22,7 @@ header {
     border-radius: 2.0rem;
 }
 
+/* this will apply for all place holder*/
 input::placeholder {
     /* 设置占位符文本的字体大小 */
     font-size: 20px;
@@ -28,11 +30,13 @@ input::placeholder {
     color: #999;
 }
 
+/* this will apply for the text area*/
 #FullName.input-text {
     font-size: 20px; /* 调整字体大小的值 */
     font-family: "Times New Roman", Times, serif;
 }
 
+/* the warning will apply on error messages*/
 .warning-text{
     color: red;
     font-size:medium;
@@ -40,22 +44,44 @@ input::placeholder {
     font-style:italic;
 }
 
-/*彩色字体*/
+/*multi color for text*/
 .multi-color-text {
     font-size: 40px;
     font-family: "Times New Roman", Times, serif;
     background: linear-gradient(to right, orange, red, blue, purple);
-    -webkit-background-clip: text;
+    -webkit-background-clip:  text;
     color: transparent;
 }
 
-.content-text {
+/* apply for the text of content in page 1*/
+.content-text1 {
     font-size: 21px;
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
     color: yellow;
 }
 
+/* apply for the text of content in page 2*/
+.content-text2 {
+    font-size: 21px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    color: blueviolet;
+}
+
+
+/* apply for the text of content in page 4*/
+.content-text4 {
+    font-size: 21px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    background: linear-gradient(to right, orange, red, blue, purple);
+    -webkit-background-clip: text;
+    color: transparent;
+    width: 50%;
+}
+
+/* apply for prompt user text*/
 .prompt-text {
     font-size: 21px;
     font-family: "Times New Roman", Times, serif;
@@ -63,6 +89,7 @@ input::placeholder {
     background-color:gold;
 }
 
+/* apply for "Step" */
 .step-content {
     font-family: 'Calibri', sans-serif;
     color: blue;
@@ -70,6 +97,8 @@ input::placeholder {
     margin-top: -10px;
     margin-bottom: 21px;
 }
+
+/* apply for contain to add a non color background*/
 .container {
     width: 50%;
     min-width: var(--ui-min-width);
@@ -93,6 +122,7 @@ input::placeholder {
     margin-top: 82px;
 }
 
+/* apply for a button */
 .button {
     margin-bottom: 10px;
     margin-top: 10px;
@@ -101,11 +131,94 @@ input::placeholder {
     color: darkred;
     height: 30px;
     font-size:17px;
+    flex-direction:row;
+    display:flex;
 }
 
+/* apply for a text area*/
 .input-text {
     text-align: center;
     border-radius: 10px;
     height: 30px;
     width: 210px;
+}
+
+/* apply for page 2 paragraph word: ONE */
+.ONE{
+    color:black;
+    font-weight: bold;
+}
+
+/* apply for page 2 checklists*/
+.check-list{
+    font-size:20px;
+    color:lightyellow;
+}
+
+/* text for underline*/
+.underline {
+    color:yellow;
+    text-decoration: underline;
+}
+
+#Toppings_Options input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+
+#Toppings_Options input[type="checkbox"]:hover {
+    background-color: orange;
+}
+
+
+.order-summary {
+    border-radius: 20px;
+    background-color: \rgba(255, 255, 255, 0.7);
+    flex-direction: column;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: auto;
+    text-align:center;
+    width:62%;
+    font-size:20px;
+}
+
+
+/* apply for a button1 in page 3 */
+.button1 {
+    margin-bottom: 10px;
+    margin-top: 6px;
+    border-radius: 10px;
+    width: 70px;
+    color: darkred;
+    height: 30px;
+    font-size: 17px;
+    flex-direction: row;
+    display: flex;
+    text-align: center;
+    margin-left: -97px;
+}
+
+/* apply for a button2 in page 3 */
+.button2 {
+    margin-bottom: 10px;
+    margin-top: 6px;
+    border-radius: 10px;
+    width: 70px;
+    color: darkred;
+    height: 30px;
+    font-size: 17px;
+    flex-direction: row;
+    display: flex;
+    text-align: center;
+    margin-left: 97px;
 }
